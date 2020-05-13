@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :update, :edit, :destroy]
+  before_action :set_task, only: %i[show update edit destroy]
 
   def index
     @tasks = Task.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @task = Task.new
@@ -22,8 +23,7 @@ class TasksController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @task.update(task_params)
@@ -39,6 +39,7 @@ class TasksController < ApplicationController
   end
 
   private
+
   def task_params
     params.require(:task).permit(:name, :user_id, :status)
   end
