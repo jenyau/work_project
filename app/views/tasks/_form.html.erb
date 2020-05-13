@@ -1,0 +1,23 @@
+<%= form_with(model: @task, local: true) do |form| %>
+
+  <%= render 'common/errors', resource: @task %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <p><div class="field">
+    <%= form.label :user %>
+    <%= form.collection_select :user_id, User.all, :id, :name %>
+  </div></p>
+
+  <p><div class="field">
+    <%= form.label :status %>
+    <%= form.collection_select :status, Task.statuses.map{ |a| [a.first, a.first]}, :first, :second %>
+  </div></p>
+
+
+  <div class="actions">
+    <%= form.submit "#{ @task.new_record? ? 'Создать' : 'Изменить' }" %>
+  </div>
+<% end %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Список заданий</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Задания</th>
+      <th colspan="3">Функции</th>
+      <th>Статус выполнения</th>
+      <th>Принадлежит пользователю</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+  <%= render @tasks %>
+
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Добавить задание', new_task_path %>

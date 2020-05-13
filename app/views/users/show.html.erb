@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Имя:</strong>
+  <%= @user.name %>
+</p>
+  <% if @user.tasks.empty? %>
+    <p>У пользователя нет заданий</p>
+  <% else %>
+    <p>
+      <strong>Количество выполненых заданий: </strong>
+      <%= @user.tasks.total_complete %>
+    </p>
+      <p>
+      <strong>Процент выполненых заданий: </strong>
+      <% if @user.tasks.empty? %>
+        Нет заданий
+      <% else %>
+        <%= "#{@user.tasks.percent}%" %>
+      <% end %>
+    </p>
+
+      <table>
+      <tr>
+        <strong>
+          <th>название задания</th>
+          <th>статус выполнения</th>
+        </strong>
+      </tr>
+      <% @user.tasks.each do |task| %>
+      <tr>
+        <td><%= link_to "#{task.name}", edit_task_path(task) %></td>
+        <td><%= link_to "#{task.status}", edit_task_path(task) %></td>
+      </tr>
+      <% end %>
+    </table>
+  <% end %>
+  <p><%= link_to "Добавить задание", new_task_path %></p>
+
+<%= link_to "Назад", users_path %>

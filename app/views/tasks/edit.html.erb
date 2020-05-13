@@ -1,0 +1,9 @@
+<h1>Изменить задание</h1>
+
+<%= render 'form' %>
+
+<%= link_to "Список заданий", tasks_path %><br>
+<%= link_to "Список пользователей", users_path %><br>
+<%= link_to "#{@task.user.name}", @task.user %>
+
+<%= link_to 'Назад', tasks_path %>

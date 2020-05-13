@@ -1,0 +1,8 @@
+<tr>
+  <td><%= task.name %></td>
+  <td><%= link_to 'Показать', task %></td>
+  <td><%= link_to 'Редактировать', edit_task_path(task) %></td>
+  <td><%= link_to 'Удалить', task, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+  <td  style="text-align: center"><%= link_to "#{task.status}", edit_task_path(task) %></td>
+  <td style="text-align: center"><%= link_to "#{task.user.name}", task.user%>
+</tr>

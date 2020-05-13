@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Название таска:</strong>
+  <%= @task.name %>
+</p>
+<p>
+  <%= "Задание принадлежит пользователю: #{@task.user.name}" %>
+</p>
+<%= link_to "Список заданий", tasks_path %><br>
+<%= link_to "Список пользователей", users_path %><br>
+<%= link_to "#{@task.user.name}", @task.user %>
+
+
+
